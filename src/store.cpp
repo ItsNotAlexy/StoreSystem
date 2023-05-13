@@ -1,6 +1,5 @@
 #include <iostream>
 #include <string>
-#include <math.h>
 #include <windows.h>
 #include <algorithm>
 
@@ -17,7 +16,7 @@ string MakeReceipt(const string *products, const int *prices, const int *quantit
 int main()
 {
     string products[5] = {"Milk", "Bread", "Eggs", "Cheese", "Butter"};
-    string coupon[5] = {"F05GT", "G05GT", "H05GT", "I05GT", "J05GT"};
+    string coupon[2] = {"SMARICCI2HEBAT", "SMARICCI2"};
     int prices[5] = {5, 5, 3, 6, 3};
     int quantity[5] = {0, 0, 0, 0, 0};
     int total = 0;
@@ -26,6 +25,7 @@ int main()
     cout << "=============================" << endl;
     cout << "Store System v2.0" << endl;
     cout << "=============================" << endl;
+    cout << "Press 0 for exit" << endl;
     cout << "Press 9 for ATM" << endl;
     cout << "Press 8 for product list" << endl;
     cout << "=============================" << endl;
@@ -241,7 +241,16 @@ int main()
         }
         else
         {
-            cout << "Invalid option, please try again" << endl;
+            if (choice == 0)
+            {
+                cout << "Exiting..." << endl;
+                Sleep(2000);
+                break;
+            }
+            else
+            {
+                cout << "Invalid option, please try again" << endl;
+            }
         }
     }
     return 0;
@@ -347,4 +356,3 @@ string Deposit(int DepositAmount)
     SetUserBalance(GetUserBalance() + DepositAmount);
     return "Success";
 }
-
